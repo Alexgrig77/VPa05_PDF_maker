@@ -1,0 +1,11 @@
+invoice_id,customer_name,customer_email,item_name,quantity,price,total,date
+INV-001,Иван Петров,ivan@example.com,Ноутбук Dell,1,50000,50000,2024-01-15
+INV-001,Иван Петров,ivan@example.com,Мышь Logitech,2,1500,3000,2024-01-15
+INV-002,Мария Сидорова,maria@example.com,Монитор Samsung,1,25000,25000,2024-01-16
+INV-002,Мария Сидорова,maria@example.com,Клавиатура Razer,1,8000,8000,2024-01-16
+INV-003,Алексей Козлов,alex@example.com,Планшет iPad,1,40000,40000,2024-01-17
+INV-003,Алексей Козлов,alex@example.com,Чехол для планшета,1,2000,2000,2024-01-17
+INV-004,Елена Волкова,elena@example.com,Смартфон iPhone,1,60000,60000,2024-01-18
+INV-004,Елена Волкова,elena@example.com,Наушники AirPods,1,15000,15000,2024-01-18
+INV-005,Дмитрий Морозов,dmitry@example.com,Игровая консоль PlayStation,1,35000,35000,2024-01-19
+INV-005,Дмитрий Морозов,dmitry@example.com,Игра FIFA 24,1,3000,3000,2024-01-19

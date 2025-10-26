@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детальный счет {{invoice_id}}</title>
+    <style>
+        {{css_styles}}
+        
+        .company-info {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+        
+        .customer-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .invoice-details div {
+            flex: 1;
+        }
+        
+        .items-header {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .items-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .summary {
+            margin-top: 30px;
+            text-align: right;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        
+        .summary-row.total {
+            font-weight: bold;
+            font-size: 16px;
+            border-top: 2px solid #333;
+            padding-top: 10px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="company-info">
+        <h2>ООО "ТехноМир"</h2>
+        <p>ИНН: 1234567890</p>
+        <p>КПП: 123456789</p>
+        <p>Адрес: г. Москва, ул. Техническая, д. 1</p>
+        <p>Телефон: +7 (495) 123-45-67</p>
+    </div>
+    
+    <div class="header">
+        <h1>СЧЕТ НА ОПЛАТУ</h1>
+        <h2>№ {{invoice_id}}</h2>
+    </div>
+    
+    <div class="invoice-details">
+        <div>
+            <p><strong>Дата выставления:</strong> {{date}}</p>
+            <p><strong>Срок оплаты:</strong> {{due_date}}</p>
+        </div>
+        <div>
+            <p><strong>Статус:</strong> Ожидает оплаты</p>
+            <p><strong>Валюта:</strong> RUB</p>
+        </div>
+    </div>
+    
+    <div class="customer-info">
+        <h3>Информация о клиенте:</h3>
+        <p><strong>Наименование:</strong> {{customer_name}}</p>
+        <p><strong>Email:</strong> {{customer_email}}</p>
+        <p><strong>Телефон:</strong> {{customer_phone}}</p>
+        <p><strong>Адрес:</strong> {{customer_address}}</p>
+    </div>
+    
+    <h3>Детализация товаров и услуг:</h3>
+    {{data_table}}
+    
+    <div class="summary">
+        <div class="summary-row">
+            <span>Подитог:</span>
+            <span>{{subtotal}} руб.</span>
+        </div>
+        <div class="summary-row">
+            <span>НДС (10%):</span>
+            <span>{{tax}} руб.</span>
+        </div>
+        <div class="summary-row total">
+            <span>ИТОГО К ОПЛАТЕ:</span>
+            <span>{{total}} руб.</span>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p><strong>Условия оплаты:</strong> Оплата в течение 30 дней с даты выставления счета</p>
+        <p><strong>Реквизиты для оплаты:</strong></p>
+        <p>Банк: ПАО "Сбербанк"</p>
+        <p>БИК: 044525225</p>
+        <p>Корр. счет: 30101810400000000225</p>
+        <p>Расчетный счет: 40702810100000000001</p>
+        <br>
+        <p>Спасибо за ваш заказ!</p>
+        <p>Этот документ был сгенерирован автоматически</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+[
+  {
+    "invoice_id": "INV-006",
+    "customer": {
+      "name": "Анна Смирнова",
+      "email": "anna@example.com",
+      "phone": "+7-999-123-45-67",
+      "address": "ул. Ленина, д. 10, кв. 5, Москва"
+    },
+    "items": [
+      {
+        "name": "Компьютерный стол",
+        "description": "Деревянный стол с ящиками",
+        "quantity": 1,
+        "price": 15000,
+        "total": 15000
+      },
+      {
+        "name": "Офисное кресло",
+        "description": "Эргономичное кресло с подлокотниками",
+        "quantity": 1,
+        "price": 12000,
+        "total": 12000
+      }
+    ],
+    "subtotal": 27000,
+    "tax": 2700,
+    "total": 29700,
+    "date": "2024-01-20",
+    "due_date": "2024-02-20"
+  },
+  {
+    "invoice_id": "INV-007",
+    "customer": {
+      "name": "Сергей Новиков",
+      "email": "sergey@example.com",
+      "phone": "+7-999-234-56-78",
+      "address": "пр. Мира, д. 25, кв. 12, СПб"
+    },
+    "items": [
+      {
+        "name": "Принтер HP LaserJet",
+        "description": "Лазерный принтер для офиса",
+        "quantity": 1,
+        "price": 18000,
+        "total": 18000
+      },
+      {
+        "name": "Картридж для принтера",
+        "description": "Оригинальный картридж HP",
+        "quantity": 3,
+        "price": 2500,
+        "total": 7500
+      }
+    ],
+    "subtotal": 25500,
+    "tax": 2550,
+    "total": 28050,
+    "date": "2024-01-21",
+    "due_date": "2024-02-21"
+  }
+]

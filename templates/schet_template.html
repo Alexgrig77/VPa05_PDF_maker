@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счет {{номер_счета}}</title>
+    <style>
+        {{css_styles}}
+        
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+        }
+        
+        .invoice-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .invoice-number {
+            font-size: 18px;
+            color: #34495e;
+            font-weight: bold;
+        }
+        
+        .company-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .company-details {
+            flex: 1;
+        }
+        
+        .invoice-details {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .customer-info {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .customer-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .items-section {
+            margin-bottom: 30px;
+        }
+        
+        .items-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .items-table th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            font-weight: bold;
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid #2980b9;
+        }
+        
+        .items-table td {
+            border: 1px solid #bdc3c7;
+            padding: 10px 8px;
+            text-align: center;
+            background-color: #fff;
+        }
+        
+        .items-table tr:nth-child(even) td {
+            background-color: #f8f9fa;
+        }
+        
+        .items-table tr:hover td {
+            background-color: #e8f4f8;
+        }
+        
+        .total-section {
+            margin-top: 25px;
+            text-align: right;
+        }
+        
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+        
+        .total-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .total-amount {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 16px;
+        }
+        
+        .grand-total {
+            border-top: 2px solid #2c3e50;
+            padding-top: 10px;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .status-paid {
+            background-color: #d5f4e6;
+            color: #27ae60;
+            border: 1px solid #27ae60;
+        }
+        
+        .status-pending {
+            background-color: #fef9e7;
+            color: #f39c12;
+            border: 1px solid #f39c12;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10px;
+            color: #7f8c8d;
+            border-top: 1px solid #bdc3c7;
+            padding-top: 15px;
+        }
+        
+        .payment-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .payment-title {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-header">
+        <div class="invoice-title">СЧЕТ НА ОПЛАТУ</div>
+        <div class="invoice-number">№ {{номер_счета}}</div>
+    </div>
+    
+    <div class="company-info">
+        <div class="company-details">
+            <h3>ООО "БизнесСервис"</h3>
+            <p><strong>ИНН:</strong> 1234567890</p>
+            <p><strong>КПП:</strong> 123456789</p>
+            <p><strong>Адрес:</strong> г. Москва, ул. Деловая, д. 15, оф. 201</p>
+            <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+            <p><strong>Email:</strong> info@biznesservice.ru</p>
+        </div>
+        
+        <div class="invoice-details">
+            <p><strong>Дата выставления:</strong> {{дата}}</p>
+            <p><strong>Срок оплаты:</strong> {{срок_оплаты}}</p>
+            <p><strong>Статус:</strong> 
+                <span class="status-badge {{статус_класс}}">{{статус}}</span>
+            </p>
+        </div>
+    </div>
+    
+    <div class="customer-info">
+        <div class="customer-title">Информация о клиенте:</div>
+        <p><strong>Наименование:</strong> {{клиент}}</p>
+    </div>
+    
+    <div class="items-section">
+        <div class="items-title">Детализация товаров и услуг:</div>
+        {{data_table}}
+    </div>
+    
+    <div class="total-section">
+        <div class="total-row">
+            <span class="total-label">Общая сумма:</span>
+            <span class="total-amount">{{общая_сумма}} руб.</span>
+        </div>
+        <div class="total-row grand-total">
+            <span>ИТОГО К ОПЛАТЕ:</span>
+            <span>{{общая_сумма}} руб.</span>
+        </div>
+    </div>
+    
+    <div class="payment-info">
+        <div class="payment-title">Реквизиты для оплаты:</div>
+        <p><strong>Банк:</strong> ПАО "Сбербанк"</p>
+        <p><strong>БИК:</strong> 044525225</p>
+        <p><strong>Корр. счет:</strong> 30101810400000000225</p>
+        <p><strong>Расчетный счет:</strong> 40702810100000000001</p>
+        <p><strong>Назначение платежа:</strong> Оплата по счету № {{номер_счета}} от {{дата}}</p>
+    </div>
+    
+    <div class="footer">
+        <p><strong>Условия оплаты:</strong> Оплата в течение 10 дней с даты выставления счета</p>
+        <p>Спасибо за ваш заказ!</p>
+        <p>Этот документ был сгенерирован автоматически</p>
+    </div>
+</body>
+</html>
